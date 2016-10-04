@@ -231,12 +231,12 @@ class PlayerSpec: QuickSpec {
             
             describe("canPlaceBet") {
                 it("returns true if the tokens is equal to or greater than the bet") {
-                    expect(player.canPlace(bet: 10)).to(beTrue())
-                    expect(player.canPlace(bet: 100)).to(beTrue())
+                    expect(player.canPlace(10)).to(beTrue())
+                    expect(player.canPlace(100)).to(beTrue())
                 }
                 
                 it("returns false if the tokens is less than the bet") {
-                    expect(player.canPlace(bet: 101)).to(beFalse())
+                    expect(player.canPlace(101)).to(beFalse())
                 }
             }
             
@@ -244,7 +244,7 @@ class PlayerSpec: QuickSpec {
                 it("should add 10 to the tokens when the bet is 10") {
                     let tokens = player.tokens
                     let bet: UInt = 10
-                    player.didWin(bet: bet)
+                    player.didWin(bet)
                     
                     expect(player.tokens).to(equal(tokens + bet))
                 }
@@ -252,7 +252,7 @@ class PlayerSpec: QuickSpec {
                 it("should add 20 to the tokens when the bet is 20") {
                     let tokens = player.tokens
                     let bet: UInt = 20
-                    player.didWin(bet: bet)
+                    player.didWin(bet)
                     
                     expect(player.tokens).to(equal(tokens + bet))
                 }
@@ -262,7 +262,7 @@ class PlayerSpec: QuickSpec {
                 it("should subtract 10 from the tokens when the bet is 10") {
                     let tokens = player.tokens
                     let bet: UInt = 10
-                    player.didLose(bet: bet)
+                    player.didLose(bet)
                     
                     expect(player.tokens).to(equal(tokens - bet))
                 }
@@ -270,7 +270,7 @@ class PlayerSpec: QuickSpec {
                 it("should subract 20 from the tokens when the bet is 20") {
                     let tokens = player.tokens
                     let bet: UInt = 20
-                    player.didLose(bet: bet)
+                    player.didLose(bet)
                     
                     expect(player.tokens).to(equal(tokens - bet))
                 }
